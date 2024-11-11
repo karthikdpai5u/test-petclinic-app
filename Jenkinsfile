@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage("Git Checkout") {
             steps {
-                git branch: 'main', url: 'https://github.com/Nandini-1428/test-petclinic-app.git'
+                git branch: 'main', url: 'https://github.com/karthikdpai5u/test-petclinic-app.git'
             }
         }
         stage("Compile") {
@@ -28,8 +28,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                deploy adapters: [tomcat9(url: 'http://172.31.89.60:8080',
-                            credentialsId: 'tomcat-server')],
+                deploy adapters: [tomcat9(url: 'http://13.233.144.3:8585',
+                            credentialsId: 'admin')],
                         war: 'target/*.war',
                         contextPath: 'app1'
             }
